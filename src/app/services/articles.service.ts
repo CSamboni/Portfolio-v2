@@ -13,14 +13,16 @@ export class ArticleService{
   constructor(private http : HttpClient){
 
   }
-//
-//getAll(){
-// 	this.http.get('https://api.github.com/users/csamboni/repos')
-//  })
-//	.subscribe(data =>{
-//		console.log(data);
-//	})
-  }
 
-//Ésto para reeemplazar el atributo 'map';
-//.subscribe(data => { array_objects = data as Object[]})
+  getAll(){
+  	this.http.get('https://api.github.com/users/csamboni/repos')
+  	.subscribe(data => {
+  		console.log(data);
+  	})
+  }
+   buildObservable() : Observable<any> {
+   	  return Observable.create(function(observer) {
+        setInterval(() => observer.next("Hola"), 1000)
+   	  })
+   }
+}

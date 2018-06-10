@@ -1,0 +1,7 @@
+<div class="light">
+<app-full-screen>
+	<app-title [subscribed]="userSubscribed"></app-title>
+	<app-articles></app-articles>
+	<app-user-card (subscribed)="subscriptionChanged($event)"></app-user-card>
+</app-full-screen>
+</div>

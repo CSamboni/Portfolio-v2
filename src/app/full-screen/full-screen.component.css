@@ -1,0 +1,12 @@
+.full-screen{
+	display: flex;
+	min-height: 100vh;
+	min-width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url("https://source.unsplash.com/random");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}

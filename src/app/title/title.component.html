@@ -1,0 +1,25 @@
+<h1 style="text-align: center;">Frontend Dev</h1>
+<p *ngIf="!isAvailable; else available ">Lanzamiento: {{launchDate | date: "dd MM y h:mm:ss":"0000" | uppercase}}</p>
+<ng-template #available>
+	<span class="highlight">Especialidad</span>
+</ng-template>
+<div class="category" [ngSwitch]="category" style="margin-left:0px;">
+	<span *ngSwitchCase="'web'">Angular Developer</span>
+    <span *ngSwitchCase="'mobile'">Desarrollo Móvil</span>
+    <span *ngSwitchCase="'other'">Desarrollo General</span>	
+    <span *ngSwitchDefault>No especificado</span>
+</div>
+<h3 [redBorder]="'green'" [redClass]="'green-border'" style="margin-top:5px;">Nombre: {{ name }}</h3>
+<div>
+<a (click)="toggleMoreInformation()">Más información <i class="fa " [ngClass]="{'fa-chevron-circle-down': !moreInformation, 'fa-chevron-circle-up': moreInformation}"></i></a>
+<p *ngIf="moreInformation">
+   <span style="display: block;font-weight: bold; "> {{seconds | secondsToTimeFormat : false}}</span>
+	Conferencia para la presentación de Angular Framework. Componentes,
+    módulos, Animaciones, fundamentos y más.</p>
+</div>
+<ul>
+	<li *ngFor="let topic of topics; index as posicion">{{posicion+1}}.-{{topic}}</li>
+</ul>
+<div>
+<button [disabled]="!isAvailable || !subscribed" [ngClass]="{active: isAvailable && subscribed, shadow: !isAvailable}" type="button" name="button">Donar {{price | currency:'MXN'}}</button>
+</div>
